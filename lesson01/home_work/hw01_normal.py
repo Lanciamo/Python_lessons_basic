@@ -1,5 +1,5 @@
 
-__author__ = 'Ваши Ф.И.О.'
+__author__ = 'Кашин Леонид Михайлович'
 
 # Задача-1: Дано произвольное целое число, вывести самую большую цифру этого числа.
 # Например, дается x = 58375.
@@ -10,6 +10,19 @@ __author__ = 'Ваши Ф.И.О.'
 # * постарайтесь решить задачу с применением арифметики и цикла while;
 # * при желании и понимании решите задачу с применением цикла for.
 
+# '''
+i = 0
+x = 0
+digit = input('Enter the last few (at least three) digit of your phone number - ')
+# print(len(digit))
+while i < len(digit):
+    if int(digit[i]) > x:
+        x = int(digit[i])
+    # print(digit[i])
+    i += 1
+print(x)
+# '''
+
 
 # Задача-2: Исходные значения двух переменных запросить у пользователя.
 # Поменять значения переменных местами. Вывести новые значения на экран.
@@ -17,11 +30,53 @@ __author__ = 'Ваши Ф.И.О.'
 # Подсказки:
 # * постарайтесь сделать решение через действия над числами;
 # * при желании и понимании воспользуйтесь синтаксисом кортежей Python.
-
+# '''
+a = input('Input A = ')
+b = input('Input B = ')
+print('A = ', a)
+print('B = ', b)
+print('Follow my hands!')
+# version 1
+x = a
+a = b
+b = x
+print('A = ', a)
+print('B = ', b)
+# version 2
+a, b = b, a
+print('A = ', a)
+print('B = ', b)
+# version 3
+a = int(a)
+b = int(b)
+a = a + b
+b = a - b
+a = a - b
+print('A = ', a)
+print('B = ', b)
+# '''
 
 # Задача-3: Напишите программу, вычисляющую корни квадратного уравнения вида
 # ax² + bx + c = 0.
 # Коэффициенты уравнения вводятся пользователем.
 # Для вычисления квадратного корня воспользуйтесь функцией sqrt() модуля math:
-# import math
+import math
 # math.sqrt(4) - вычисляет корень числа 4
+
+# '''
+a = float(input('Input A = '))
+b = float(input('Input B = '))
+c = float(input('Enter C = '))
+
+discrim = b ** 2 - 4 * a * c
+# print(discrim)
+if discrim > 0:
+    x1 = (-b + math.sqrt(discrim)) / (2 * a)
+    x2 = (-b - math.sqrt(discrim)) / (2 * a)
+    print("x1 = %.2f \nx2 = %.2f" % (x1, x2)) #этот синтаксис я подсмотрел, а где про это можно почитать?
+elif discrim == 0:
+    x = -b / (2 * a)
+    print("x = %.2f" % x)
+else:
+    print("There is no roots")
+# '''
