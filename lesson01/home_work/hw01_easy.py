@@ -1,5 +1,5 @@
 
-__author__ = 'Ваши Ф.И.О.'
+__author__ = 'Кашин Леонид Михайлович'
 
 # Задача-1: Дано произвольное целое число (число заранее неизвестно).
 # Вывести поочередно цифры исходного числа (порядок вывода цифр неважен).
@@ -9,6 +9,14 @@ __author__ = 'Ваши Ф.И.О.'
 
 # код пишем тут...
 
+# '''
+i = 0
+digit = input('Enter the last few (at least three) digit of your phone number - ')
+# print(len(digit))
+while i < len(digit):
+    print(digit[i])
+    i += 1
+# '''
 
 # Задача-2: Исходные значения двух переменных запросить у пользователя.
 # Поменять значения переменных местами. Вывести новые значения на экран.
@@ -17,8 +25,34 @@ __author__ = 'Ваши Ф.И.О.'
 #   или через арифметические действия
 # Не нужно решать задачу так:
 # print("a = ", b, "b = ", a) - это неправильное решение!
+# '''
+a = input('Input A = ')
+b = input('Input B = ')
 
+print('A = ', a)
+print('B = ', b)
+
+print('Follow my hands!')
+
+x = a
+a = b
+b = x
+
+print('A = ', a)
+print('B = ', b)
+# '''
 
 # Задача-3: Запросите у пользователя его возраст.
 # Если ему есть 18 лет, выведите: "Доступ разрешен",
 # иначе "Извините, пользование данным ресурсом только с 18 лет"
+
+print('Attantion!!! Please enter your answer only by digit!')
+user_age = int(input('How old are you? - '))
+
+if user_age >= 18:
+    print('Access granted!')
+else:
+    p = 18 - user_age
+    print('Son, please come back in ' + str(p) + 'years')
+
+
