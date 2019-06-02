@@ -1,10 +1,18 @@
 # Задание-1: уравнение прямой вида y = kx + b задано в виде строки.
 # Определить координату y точки с заданной координатой x.
 
+'''
 equation = 'y = -12x + 11111140.2121'
 x = 2.5
 # вычислите и выведите y
-
+ravno = equation.find("=")+1
+iks = equation.find("x")
+plu = equation.find("+")+1
+k = float(equation[ravno:iks])
+b = float(equation[plu:])
+y = k * x + b
+print("К = ", k, "В = ", b, ", соответственно Y = ", y)
+# '''
 
 # Задание-2: Дата задана в виде строки формата 'dd.mm.yyyy'.
 # Проверить, корректно ли введена дата.
@@ -17,14 +25,26 @@ x = 2.5
 #  (т.е. 2 символа для дня, 2 - для месяца, 4 - для года)
 
 # Пример корректной даты
-date = '01.11.1985'
-
-# Примеры некорректных дат
-date = '01.22.1001'
-date = '1.12.1001'
-date = '-2.10.3001'
-
-
+# date = '01.11.1985'
+#
+# # Примеры некорректных дат
+# date = '01.22.1001'
+# date = '1.12.1001'
+# date = '-2.10.3001'
+'''
+while True:
+    user_data = input("Введите дату в формате dd.mm.yyyy, (например: 02.11.2013):  ")
+    m31 = ['01', '03', '05', '07', '08', '10', '12']
+    if len(user_data) != 10 or user_data[2] != '.' or user_data[5] != '.':
+        print("ошибка ввода")
+    elif int(user_data[0:2]) not in range(1, 32) or int(user_data[3:5]) not in range(1, 13) or int(user_data[6:10]) not in range(1, 2020):
+        print("такой даты не бывает")
+    elif int(user_data[0:2]) == 31 and int(user_data[3:5]) not in m31:
+        print("Wrong mounth")
+    else :
+        break
+print(user_data, "Корректно!")
+# '''
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
 #
 # Вавилонцы решили построить удивительную башню —
@@ -54,3 +74,38 @@ date = '-2.10.3001'
 #
 # Вход: 11
 # Выход: 5 3
+
+room = int(input('Please enter the room number: '))
+box = 0
+pos = 1
+etage = 1
+
+
+while (pos + (box * box)) <= room: #Идём по квадратам, ищем нужный
+    pos += (box * box) #pos хранит номер первой ячейки в текущем квадрате
+    etage += box #Счётчик столбцов прирастает на число этих столбцов в квадрате
+    box += 1 #Квадраты считаются по одному
+    print(box, (pos + (box * box)), (box * box))
+
+onetage = 1 #Храним приращение номера столбца внутри текущего квадрата
+
+while (pos + (onetage * box)) <= room :
+    pos += onetage * box #pos хранит номер первой ячейки в текущем столбце
+    onetage += 1 #Увеличиваем приращение
+    print(onetage, (pos + (onetage * box)), (onetage * box))
+
+etage += onetage - 1 #Регистрируем найденный столбец
+
+place = 1 #Храним приращение номера ячейки в текущем столбце
+while (pos + place) <= room :
+    place += 1
+    print(pos, (pos + place))
+pos += place - 1
+
+#Вывод данных
+print('\tEtage:\t%s\n\tPlace:\t%s' % (etage, place) )
+print('Position in the sequence: %s' % (pos))
+
+# Решение нашел на GB https://geekbrains.ru/posts/babylon_task )
+# в целом понял, но не все понял с математической точки зрения - например почему на последенем этапе, когда мы ищем место,
+# приращение начинается с 2 единиц, а не с одной...
