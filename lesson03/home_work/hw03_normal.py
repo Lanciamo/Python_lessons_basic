@@ -36,24 +36,27 @@ print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
 # Напишите собственную реализацию стандартной функции filter.
 # Разумеется, внутри нельзя использовать саму функцию filter.
 
-''' НЕ РЕШИЛ(
-def myfil(j, n):
-    if j(n) == True:
-        return True
-    else:
-        return False
+'''
+def only_odd_filter(num):
+    if not num % 2:
+        return num
 
 
+def custom_filter(func, iterable_item):
+    result = []
+    for i in iterable_item:
+        if func(i):
+            result.append(i)
+    return result
 
-def numbs(x):
-    if '0' <= x <= '9':
-        return 1
-    else:
-        return 0
 
-s = "5a 3 k 99 d00"
+print('original:')
+print(list(filter(lambda x: x != ' ', 'а роза упала на лапу азора')))
+print(list(filter(only_odd_filter, [1, 2, 3, 4, 5, 6])))
 
-print(filter(numbs,s))
+print('\ncustom:')
+print(custom_filter(lambda x: x != ' ', 'а роза упала на лапу азора'))
+print(custom_filter(only_odd_filter, [1, 2, 3, 4, 5, 6]))
 # '''
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
