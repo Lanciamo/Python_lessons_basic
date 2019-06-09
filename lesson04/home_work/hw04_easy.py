@@ -6,9 +6,21 @@
 # квадратами элементов исходного списка
 # [1, 2, 4, 0] --> [1, 4, 16, 0]
 
+# '''
+import random
+lst_new = [i ** 2 for i in [random.randint(-10, 10) for _ in range(10)]]
+print('lst_new = ', lst_new)
+# '''
 # Задание-2:
 # Даны два списка фруктов.
 # Получить список фруктов, присутствующих в обоих исходных списках.
+
+# '''
+a = ['apple', 'orange', 'strawberry', 'rose apple']
+b = ['orange', 'fragola', 'pinapple', 'rose apple']
+c = [i for i in a for j in b if i == j]
+print(c)
+# '''
 
 # Задание-3:
 # Дан список, заполненный произвольными числами.
@@ -16,3 +28,11 @@
 # + Элемент кратен 3
 # + Элемент положительный
 # + Элемент не кратен 4
+# '''
+# import random
+lst = [random.randint(-10, 10) for _ in range(10)]
+lst.append(27)
+lst.append(12)
+print(lst)
+lst_y = [i for i in lst if i % 3 == 0 and i >= 0 and i % 4 != 0]
+print(lst_y)
