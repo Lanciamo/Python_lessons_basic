@@ -11,7 +11,6 @@
 
 
 def split_fraction(fraction):
-    """ возвращает переданную строку в виде неправильной дробь """
     if ' ' in fraction:
         temp = fraction.split(' ')
         total = int(temp[0])
@@ -213,9 +212,5 @@ def put_fruits_to_files():
                     fruit_file.write(fruit)
 
     print('фрукты разложены по файлам')
-
-
-print('\n' * 2)
-print(f'{"*" * 15} Задание3 {"*" * 15}')
 
 put_fruits_to_files()
