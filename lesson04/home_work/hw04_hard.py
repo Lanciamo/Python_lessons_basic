@@ -15,14 +15,12 @@ matrix = [[1, 0, 8],
 
 # Суть сложности hard: Решите задачу в одну строку
 
-'''
+# '''
 
 matrix_t = [[x[m] for x in matrix] for m in range(len(matrix[0]))]
 
 for i in range(len(matrix_t)):
-    for j in range(len(matrix_t[i])):
-        print(matrix_t[i][j], end=' ')
-    print()
+    print(matrix_t[i], end='\n')
 
 
 # '''
@@ -99,7 +97,7 @@ coords = ((1, 1),
           (4, 5),
           (8, 7),
           (2, 8),
-          (6, 6)
+          (3, 6)
           )
 
 x = [i[0] for i in coords]
