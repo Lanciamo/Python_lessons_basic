@@ -4,6 +4,8 @@
 # И второй скрипт, удаляющий эти папки.
 
 import os
+import sys
+import shutil
 # '''
 
 def make_dirs():
@@ -18,25 +20,47 @@ def show_dirs():
     print(os.listdir())
 
 def cop_the_file():
-    pass
+    destdir = os.getcwd()
+    filename = f'{__file__}-copy'
+    shutil.copyfile(__file__, os.path.join(destdir,filename))
 
-print('1. Make 9 dirs')
-print('2. Del 9 dirs')
-print('3. Show dirs in current directory')
-print(f'4. Make copy of this file {__name__}')
-selector_menu = input('What option will you choose: ')
-if selector_menu == '1':
-    make_dirs()
+def cd(dir_name=None):
+    if not dir_name:
+        dir_name = input('Введите папку назначения: ')
 
-if selector_menu == '2':
-    del_dirs()
+    try:
+        os.chdir(dir_name)
 
-if selector_menu == '3':
-    show_dirs()
+    except PermissionError:
+        print('Нет прав доступа')
 
-if selector_menu == '4':
-    cop_the_file()
+    except FileNotFoundError:
+        print('не существует')
 
+    else:
+        print(os.getcwd())
+
+
+def launch():
+    print('1. Make 9 dirs')
+    print('2. Del 9 dirs')
+    print('3. Show dirs in current directory')
+    print(f'4. Make copy of this file {__file__}')
+    selector_menu = input('What option will you choose: ')
+    if selector_menu == '1':
+        make_dirs()
+
+    if selector_menu == '2':
+        del_dirs()
+
+    if selector_menu == '3':
+        show_dirs()
+
+    if selector_menu == '4':
+        cop_the_file()
+
+if __name__ == '__main__':
+    launch()
 
 '''
 # Задача-2:
